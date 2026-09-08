@@ -214,7 +214,7 @@ func (t *transport) dial(ctx context.Context, addr ma.Multiaddr, url, sni string
 	if err != nil {
 		return nil, nil, err
 	}
-	dialer := webtransport.Dialer{
+	dialer := webtransport.Transport{
 		DialAddr: func(_ context.Context, _ string, _ *tls.Config, _ *quic.Config) (*quic.Conn, error) {
 			return conn, nil
 		},
